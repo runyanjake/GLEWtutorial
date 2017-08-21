@@ -9,7 +9,7 @@ GPP      = g++ -std=gnu++14 -g -O0 ${WARN}
 
 EXECBIN  = evolutions
 DEPFILE  = Makefile.dep
-HEADERS  = util.h debug.h tflow.h fileio.h graphics.h interp.h shape.h rgbcolor.h
+HEADERS  = util.h debug.h tflow.h fileio.h graphics.h interp.h shape.h rgbcolor.h extern.h
 CPPLIBS  = util.cpp debug.cpp tflow.cpp fileio.cpp graphics.cpp interp.cpp shape.cpp rgbcolor.cpp
 CPPSRCS  = ${CPPLIBS} ${EXECBIN}.cpp
 LIBOBJS  = ${CPPLIBS:.cpp=.o}
@@ -20,7 +20,7 @@ SOURCES  = ${HEADERS} ${CPPSRCS} Makefile
 
 
 
-all: ${DEPFILE} ${EXECBIN}
+all: ${DEPFILE} ${EXECBIN} 
 
 evolutions: ${EVOOBJS}
 	${GPP} -o $@ ${EVOOBJS}
@@ -44,6 +44,7 @@ test: ${EXECBIN}
 	-@echo
 	-@echo
 	./${EXECBIN}
+	-@echo
 	-@echo
 	-@echo
 	-@echo

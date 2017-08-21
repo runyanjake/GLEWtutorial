@@ -3,6 +3,10 @@
 #ifndef __TFLOW_H__
 #define __TFLOW_H__
 
+#include <string>
+
+#include "extern.h"
+
 using namespace std;
 
 

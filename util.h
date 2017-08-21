@@ -3,6 +3,10 @@
 #ifndef __UTIL_H__
 #define __UTIL_H__
 
+#include <string>
+
+#include "extern.h"
+
 using namespace std;
 
 

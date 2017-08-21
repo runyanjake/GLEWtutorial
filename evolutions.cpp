@@ -2,8 +2,34 @@
 
 #include <iostream>
 
+#include "debug.h"
+
 using namespace std;
 
+void scan_options (int argc, char** argv) {
+   opterr = 0;
+   for (;;) {
+      int option = getopt (argc, argv, "@:w:h:");
+      if (option == EOF) break;
+      switch (option) {
+         case '@': 
+         	break;
+         case 'w': 
+         	break;
+         case 'h': 
+         	break;
+         default:
+            cerr << "-" << char (optopt) << ": invalid option" << endl;
+            break;
+      }
+   }
+}
+
 int main(int argc, char** argv){
-	std::cout << "hello world" << endl;
+	DEBUGF( OPERATING_SYSTEM_NAME << " operating system detected.");
+
+	scan_options(argc, argv);
+
+
+
 }

@@ -3,6 +3,10 @@
 #ifndef __FILEIO_H__
 #define __FILEIO_H__
 
+#include <string>
+
+#include "extern.h"
+
 using namespace std;
 
 

@@ -3,13 +3,10 @@
 #ifndef __RGBCOLOR_H__
 #define __RGBCOLOR_H__
 
+#include <string>
+
+#include "extern.h"
+
 using namespace std;
-
-
-
-
-
-
-
 
 #endif
