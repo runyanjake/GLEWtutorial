@@ -2,5 +2,3 @@
 
 #include "rgbcolor.h"
 
-using namespace std;
-

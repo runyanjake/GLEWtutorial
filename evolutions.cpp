@@ -5,8 +5,6 @@
 #include "debug.h"
 #include "fileio.h"
 
-using namespace std;
-
 //** NOTE: DEBUGF TOGGLE in DEBUG.h **
 
 void scan_options (int argc, char** argv) {
@@ -22,7 +20,7 @@ void scan_options (int argc, char** argv) {
          case 'h': 
          	break;
          default:
-            cerr << "-" << char (optopt) << ": invalid option" << endl;
+            std::cerr << "-" << char (optopt) << ": invalid option" << std::endl;
             break;
       }
    }

@@ -2,18 +2,16 @@
 
 #include "fileio.h"
 
-using namespace std;
-
 bool check_filesystem(){
 	const char* ls_cmd = "ls ./data";
 	try{
 		
-   		if (popen (ls_cmd, "r")) { cout << "no data" << endl; }
+   		if (popen (ls_cmd, "r")) { std::cout << "no data" << std::endl; }
    		
-	}catch(exception e){
-		cout << "error caught" << endl;
+	}catch(std::exception e){
+		std::cout << "error caught" << std::endl;
 	}
-   	cout << "done w test" << endl;
+   	std::cout << "done w test" << std::endl;
 	return 1;
 }
 
@@ -23,7 +21,7 @@ void init_filesystem(){
 
 //Class implementations
 
-iohandler_basic::iohandler_basic(string file){
+iohandler_basic::iohandler_basic(std::string file){
 	filename = file;
 	//iohandler = {file, ios_base::in | ios_base::out };
 }
@@ -37,7 +35,7 @@ bool iohandler_basic::isopen(){
 	return false;
 }
 
-string iohandler_basic::currentfile(){
+std::string iohandler_basic::currentfile(){
 	return filename;
 }
 
@@ -45,20 +43,20 @@ void iohandler_basic::closefile(){
 	filename = "";
 }
 
-void iohandler_basic::openfile(string file){
+void iohandler_basic::openfile(std::string file){
 	if(isopen()){
 		closefile();
 	}
 	filename = file;
 }
 
-vector<string> iohandler_basic::read(){
-	vector<string> ans;
+std::vector<std::string> iohandler_basic::read(){
+	std::vector<std::string> ans;
 	return ans;
 }
 
-void iohandler_basic::write(vector<string> data){
-	for(string s : data){
+void iohandler_basic::write(std::vector<std::string> data){
+	for(std::string s : data){
 
 	}
 }

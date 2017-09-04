@@ -2,5 +2,3 @@
 
 #include "interp.h"
 
-using namespace std;
-

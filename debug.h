@@ -8,8 +8,6 @@
 
 #include "extern.h"
 
-using namespace std;
-
 //*****************
 #define DEBUG 1 //*
 //*****************
@@ -17,8 +15,8 @@ using namespace std;
 //DEBUGF
 #if DEBUG
 #define DEBUGF(CODE) { \
-            cerr << __FILE__ << "[" << __LINE__ << "] "\
-            	<< __func__ << ": " << CODE << endl; \
+            std::cerr << __FILE__ << "[" << __LINE__ << "] "\
+            	<< __func__ << ": " << CODE << std::endl; \
         }
 #else
 #define DEBUGF(CODE) ;

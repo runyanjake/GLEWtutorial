@@ -7,7 +7,6 @@
 
 #include "extern.h"
 
-using namespace std;
 
 
 

@@ -18,9 +18,6 @@
  *
  */
 
-using namespace std;
-
-//**** FILESYSTEM FUNCS ****
 /*
  * Checks filesystem state. 
  * @return returns 1 if filesystem ok, 0 if in error.
@@ -35,9 +32,9 @@ void init_filesystem();
 
 class iohandler_basic{
 private:
-	string filename; //empty string if anything other than filename.
+	std::string filename; //empty string if anything other than filename.
 public:
-	iohandler_basic(string file); //default ctor override
+	iohandler_basic(std::string file); //default ctor override
 	iohandler_basic(const iohandler_basic& io) = delete; //delete copy ctor
 	iohandler_basic(iohandler_basic&& io) = delete; //delete move ctor
 	iohandler_basic& operator=(const iohandler_basic& io) = delete; //delete copy opr
@@ -52,7 +49,7 @@ public:
 	 * Closes current file if open and opens a file for reading. 
 	 * @param filename: the file to be read from.
 	 */
-	string currentfile();
+	std::string currentfile();
 	/*
 	 * Closes current file if open.
 	 */
@@ -61,7 +58,7 @@ public:
 	 * Closes current file if open and opens a file for reading. 
 	 * @param filename: the file to be read from.
 	 */
-	void openfile(string file);
+	void openfile(std::string file);
 	/*
 	 * Closes current file if open and opens a file for reading. 
 	 * By defualt, this file returns a vector containing the lines of the file 
@@ -69,13 +66,13 @@ public:
 	 * @param filename: the file to be read from.
 	 * @NOTE: TO BE OVERRIDDEN IN SPECIALIZED CLASSES.
 	 */
-	vector<string> read();
+	std::vector<std::string> read();
 	/*
 	 * Writes to a currently open file, if one is open.
 	 * @param data: data to be written, exactly how it should be written to the file.
 	 *		(one line per vector entry.)
 	 */
-	void write(vector<string> data);
+	void write(std::vector<std::string> data);
 
 };
 
