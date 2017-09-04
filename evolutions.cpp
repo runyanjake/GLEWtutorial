@@ -3,8 +3,11 @@
 #include <iostream>
 
 #include "debug.h"
+#include "fileio.h"
 
 using namespace std;
+
+//** NOTE: DEBUGF TOGGLE in DEBUG.h **
 
 void scan_options (int argc, char** argv) {
    opterr = 0;
@@ -26,7 +29,13 @@ void scan_options (int argc, char** argv) {
 }
 
 int main(int argc, char** argv){
-	DEBUGF( OPERATING_SYSTEM_NAME << " operating system detected.");
+	DEBUGF(OPERATING_SYSTEM_NAME << " operating system detected.");
+
+   //Check filesystem setup.
+   if(!check_filesystem()){
+      DEBUGF("Filesystem check ended in error. Performing first time filesystem setup...");
+      //create /evolutions/bin, /evolutions/data
+   }
 
 	scan_options(argc, argv);
 
