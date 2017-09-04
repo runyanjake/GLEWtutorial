@@ -3,5 +3,7 @@ A summer project aimed to build a game/simulation based on the Evolutionary Neur
 
 
 Dependancies:
+
 OpenGL's GLEW - https://www.opengl.org/sdk/libs/GLEW/
+
 OpenGL Mathematics - https://glm.g-truc.net/0.9.8/index.html
