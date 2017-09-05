@@ -10,16 +10,27 @@
 
 //*****************
 #define DEBUG 1 //*
+#define ERROR 1 //*
 //*****************
 
 //DEBUGF
 #if DEBUG
 #define DEBUGF(CODE) { \
-            std::cerr << __FILE__ << "[" << __LINE__ << "] "\
+            std::cout << __FILE__ << "[" << __LINE__ << "] "\
             	<< __func__ << ": " << CODE << std::endl; \
         }
 #else
 #define DEBUGF(CODE) ;
+#endif
+
+//DEBUGF
+#if ERROR
+#define ERRORF(CODE) { \
+            std::cerr << __FILE__ << "[" << __LINE__ << "] "\
+            	<< __func__ << ": " << CODE << std::endl; \
+        }
+#else
+#define ERRORF(CODE) ;
 #endif
 
 #endif

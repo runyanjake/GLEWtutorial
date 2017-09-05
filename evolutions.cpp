@@ -45,8 +45,18 @@ int main(int argc, char *argv[]){
    SDL_GL_SetAttribute(SDL_GL_ALPHA_SIZE, 8);
    SDL_GL_SetAttribute(SDL_GL_BUFFER_SIZE, 32); //hold all pixel attributes
    SDL_GL_SetAttribute(SDL_GL_DOUBLEBUFFER, 1);
+   //The following 2 lines may only be needed on non-O SX computers.
+   //"Basically, since OpenGL is a core feature of OSX, you don't need to include GLEW."
+   //GLenum glew_status = glewInit();
+   //if(glew_status != GLEW_OK){ ERRORF("Glew failed to initialize."); }
 
    basic_window win("test window", 640, 480);
+
+   while(!win.isclosed()){
+      glClearColor(0.0f, 0.15f, 0.3f, 1.0f);
+      glClear(GL_COLOR_BUFFER_BIT);
+      win.swapbuffers();
+   }
 
    //Destroy all Graphics Stuff
 

@@ -17,14 +17,15 @@ EVOOBJS  = ${EXECBIN}.o ${LIBOBJS}
 OBJECTS  = ${EVOOBJS}
 LISTING  = Listing.ps
 SOURCES  = ${HEADERS} ${CPPSRCS} Makefile
-FRAMEWORK= SDL2
+FRAMEWORK= -framework SDL2 -framework OpenGL
 
 
 
 all: ${DEPFILE} ${EXECBIN} 
 
 evolutions: ${EVOOBJS}
-	${GPP} -o $@ ${EVOOBJS} -framework $(FRAMEWORK)
+	${GPP} -o $@ ${EVOOBJS} $(FRAMEWORK)
+	#NOTE: IMPORTANT to link SDL lib with -framework for SDL to work.
 
 %.o: %.cpp
 	${GPP} -c $<

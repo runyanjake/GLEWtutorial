@@ -15,6 +15,7 @@ private:
 	SDL_Window* win_obj;
 	SDL_GLContext win_glcontext;
 	int win_width, win_height;
+	bool win_isclosed;
 public:
 	basic_window(std::string n, int w, int h); //default ctor override
 	basic_window(const basic_window& win) = delete; //delete copy ctor
@@ -24,6 +25,7 @@ public:
 	~basic_window(); //default dtor override
 
 	void swapbuffers(); //like glut swapbuffers
+	bool isclosed();
 };
 
 #endif
