@@ -3,15 +3,15 @@
 #include "fileio.h"
 
 bool check_filesystem(){
-	const char* ls_cmd = "ls ./data";
-	try{
+	// const char* ls_cmd = "ls ./data";
+	// try{
 		
-   		if (popen (ls_cmd, "r")) { std::cout << "no data" << std::endl; }
+ //   		if (popen (ls_cmd, "r")) { std::cout << "no data" << std::endl; }
    		
-	}catch(std::exception e){
-		std::cout << "error caught" << std::endl;
-	}
-   	std::cout << "done w test" << std::endl;
+	// }catch(std::exception e){
+	// 	std::cout << "error caught" << std::endl;
+	// }
+ //   	std::cout << "done w test" << std::endl;
 	return 1;
 }
 

@@ -1,13 +1,12 @@
 // $Id: evolutions.cpp,v 1.2 2016-05-09 16:01:56-07 - - $
 
-#include <iostream>
-#include <GL/glew.h>
+#include "extern.h"
 
 #include "debug.h"
 #include "fileio.h"
+#include "graphics.h"
 
 //** NOTE: DEBUGF TOGGLE in DEBUG.h **
-
 void scan_options (int argc, char** argv) {
    opterr = 0;
    for (;;) {
@@ -27,7 +26,7 @@ void scan_options (int argc, char** argv) {
    }
 }
 
-int main(int argc, char** argv){
+int main(int argc, char *argv[]){
 	DEBUGF(OPERATING_SYSTEM_NAME << " operating system detected.");
 
    //Check filesystem setup.
@@ -38,6 +37,19 @@ int main(int argc, char** argv){
 
 	scan_options(argc, argv);
 
+   //Initialize Graphics Stuff
+   SDL_Init(SDL_INIT_EVERYTHING);
+   SDL_GL_SetAttribute(SDL_GL_RED_SIZE, 8);
+   SDL_GL_SetAttribute(SDL_GL_GREEN_SIZE, 8);
+   SDL_GL_SetAttribute(SDL_GL_BLUE_SIZE, 8);
+   SDL_GL_SetAttribute(SDL_GL_ALPHA_SIZE, 8);
+   SDL_GL_SetAttribute(SDL_GL_BUFFER_SIZE, 32); //hold all pixel attributes
+   SDL_GL_SetAttribute(SDL_GL_DOUBLEBUFFER, 1);
+
+   basic_window win("test window", 640, 480);
+
+   //Destroy all Graphics Stuff
 
 
+   return 0;
 }

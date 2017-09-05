@@ -1,5 +1,7 @@
 // $Id: extern.h,v 1.2 2016-05-09 16:01:56-07 - - $
 
+//global includes every file should have
+#include <iostream>
 
 //**** Determine Operating System
 #if (defined (__WIN32__))

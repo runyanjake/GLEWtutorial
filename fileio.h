@@ -5,7 +5,6 @@
 
 #include <string>
 #include <vector>
-#include <iostream> //ostream & cout
 
 #include "extern.h"
 

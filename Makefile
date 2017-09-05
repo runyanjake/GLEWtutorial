@@ -17,13 +17,14 @@ EVOOBJS  = ${EXECBIN}.o ${LIBOBJS}
 OBJECTS  = ${EVOOBJS}
 LISTING  = Listing.ps
 SOURCES  = ${HEADERS} ${CPPSRCS} Makefile
+FRAMEWORK= SDL2
 
 
 
 all: ${DEPFILE} ${EXECBIN} 
 
 evolutions: ${EVOOBJS}
-	${GPP} -o $@ ${EVOOBJS}
+	${GPP} -o $@ ${EVOOBJS} -framework $(FRAMEWORK)
 
 %.o: %.cpp
 	${GPP} -c $<
