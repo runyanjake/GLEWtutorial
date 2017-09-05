@@ -1,0 +1,15 @@
+// $Id: shader.cpp,v 1.2 2016-05-09 16:01:56-07 - - $
+
+#include "shader.h"
+
+Shader::Shader(const std::string& filename){
+
+}
+
+Shader::~Shader(){
+
+}
+
+void Shader::bind(){
+
+}

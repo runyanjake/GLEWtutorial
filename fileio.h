@@ -6,8 +6,6 @@
 #include <string>
 #include <vector>
 
-#include "extern.h"
-
 /*
  * NOTE: FILESYSTEM EXPECTED to contain certain Folders
  *

@@ -17,3 +17,6 @@
 #define OPERATING_SYSTEM 4
 #define OPERATING_SYSTEM_NAME "Linux"
 #endif
+
+//GLOBAL VARS
+static std::string _PROG_NAME = "evolutions by jake";

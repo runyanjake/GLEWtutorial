@@ -9,15 +9,15 @@ GPP      = g++ -std=gnu++14 -g -O0 ${WARN}
 
 EXECBIN  = evolutions
 DEPFILE  = Makefile.dep
-HEADERS  = util.h debug.h tflow.h fileio.h graphics.h interp.h shape.h rgbcolor.h extern.h
-CPPLIBS  = util.cpp debug.cpp tflow.cpp fileio.cpp graphics.cpp interp.cpp shape.cpp rgbcolor.cpp
+HEADERS  = util.h debug.h tflow.h fileio.h graphics.h interp.h shape.h rgbcolor.h extern.h mesh.h shader.h
+CPPLIBS  = util.cpp debug.cpp tflow.cpp fileio.cpp graphics.cpp interp.cpp shape.cpp rgbcolor.cpp mesh.cpp shader.cpp
 CPPSRCS  = ${CPPLIBS} ${EXECBIN}.cpp
 LIBOBJS  = ${CPPLIBS:.cpp=.o}
 EVOOBJS  = ${EXECBIN}.o ${LIBOBJS}
 OBJECTS  = ${EVOOBJS}
 LISTING  = Listing.ps
 SOURCES  = ${HEADERS} ${CPPSRCS} Makefile
-FRAMEWORK= -framework SDL2 -framework OpenGL
+FRAMEWORK= -framework SDL2 -framework OpenGL 
 
 
 

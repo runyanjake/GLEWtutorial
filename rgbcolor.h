@@ -5,6 +5,4 @@
 
 #include <string>
 
-#include "extern.h"
-
 #endif

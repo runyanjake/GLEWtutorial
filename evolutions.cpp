@@ -5,6 +5,8 @@
 #include "debug.h"
 #include "fileio.h"
 #include "graphics.h"
+#include "mesh.h"
+#include "shader.h"
 
 //** NOTE: DEBUGF TOGGLE in DEBUG.h **
 void scan_options (int argc, char** argv) {
@@ -50,11 +52,22 @@ int main(int argc, char *argv[]){
    //GLenum glew_status = glewInit();
    //if(glew_status != GLEW_OK){ ERRORF("Glew failed to initialize."); }
 
-   basic_window win("test window", 640, 480);
+   basic_window win(_PROG_NAME, 640, 480);
+
+   //TEST
+   Vertex v[] = {Vertex(glm::vec3(-0.5,-0.5,0)),
+                        Vertex(glm::vec3(0,0.5,0)),
+                        Vertex(glm::vec3(0.5,-0.5,0))
+                  };
+
+   Mesh m(v, (sizeof(v)) / (sizeof(v[0])) );
+   m.draw();
+
+
+
 
    while(!win.isclosed()){
-      glClearColor(0.0f, 0.15f, 0.3f, 1.0f);
-      glClear(GL_COLOR_BUFFER_BIT);
+      win.clear(255,255,255,0);
       win.swapbuffers();
    }
 

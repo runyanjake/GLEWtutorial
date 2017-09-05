@@ -6,8 +6,6 @@
 #include <string>
 #include <vector>
 
-#include "extern.h"
-
 //*****************
 #define DEBUG 1 //*
 #define ERROR 1 //*
