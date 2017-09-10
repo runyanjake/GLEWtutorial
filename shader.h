@@ -15,7 +15,7 @@
 
 class Shader{
 private:
-	static const unsigned int NUM_SHADERS = 2;
+	static const unsigned int NUM_SHADERS = 2; //change depending on type of shading being done
 	GLuint m_program;
 	GLuint m_shaders[NUM_SHADERS];
 public:
@@ -26,7 +26,7 @@ public:
 	Shader& operator=(Shader&& m) = delete; //delete move opr
 	virtual ~Shader(); //default dtor override
 
-	void bind();
+	void Bind();
 };
 
 

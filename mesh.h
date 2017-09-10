@@ -29,7 +29,7 @@ public:
 	basic_window& operator=(basic_window&& win) = delete; //delete move opr
 	~basic_window(); //default dtor override
 
-	void swapbuffers(); //like glut swapbuffers
+	void Update(); //like glut swapbuffers
 	bool isclosed();
 	void clear();
 	void clear(float r, float g, float b, float a);

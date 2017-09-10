@@ -19,7 +19,7 @@ basic_window::~basic_window(){
 }
 
 
-void basic_window::swapbuffers(){
+void basic_window::Update(){
 	SDL_GL_SwapWindow(win_obj);
 	SDL_Event e;
 	while(SDL_PollEvent(&e)){

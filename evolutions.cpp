@@ -55,20 +55,29 @@ int main(int argc, char *argv[]){
    basic_window win(_PROG_NAME, 640, 480);
 
    //TEST
-   Vertex v[] = {Vertex(glm::vec3(-0.5,-0.5,0)),
+
+   
+
+
+
+
+   Vertex verts[] = {Vertex(glm::vec3(-0.5,-0.5,0)),
                         Vertex(glm::vec3(0,0.5,0)),
                         Vertex(glm::vec3(0.5,-0.5,0))
                   };
 
-   Mesh m(v, (sizeof(v)) / (sizeof(v[0])) );
-   m.draw();
-
-
+   Mesh mesh(verts , (sizeof(verts)) / (sizeof(verts[0])) );
+   Shader shader("./data/basicShader");
 
 
    while(!win.isclosed()){
       win.clear(255,255,255,0);
-      win.swapbuffers();
+      
+      mesh.draw();
+      
+      shader.Bind();
+      
+      win.Update();
    }
 
    //Destroy all Graphics Stuff
