@@ -9,11 +9,11 @@ GPP      = g++ -std=gnu++14 -g -O0 ${WARN}
 
 EXECBIN  = evolutions
 DEPFILE  = Makefile.dep
-HEADERS  = util.h debug.h tflow.h fileio.h graphics.h interp.h shape.h rgbcolor.h extern.h mesh.h shader.h
-CPPLIBS  = util.cpp debug.cpp tflow.cpp fileio.cpp graphics.cpp interp.cpp shape.cpp rgbcolor.cpp mesh.cpp shader.cpp
+HEADERS  = util.h debug.h tflow.h fileio.h graphics.h interp.h shape.h rgbcolor.h extern.h mesh.h shader.h texture.h
+CPPLIBS  = util.cpp debug.cpp tflow.cpp fileio.cpp graphics.cpp interp.cpp shape.cpp rgbcolor.cpp mesh.cpp shader.cpp texture.cpp
 CPPSRCS  = ${CPPLIBS} ${EXECBIN}.cpp
-LIBOBJS  = ${CPPLIBS:.cpp=.o}
-EVOOBJS  = ${EXECBIN}.o ${LIBOBJS}
+LIBOBJS  = ${CPPLIBS:.cpp=.o} stb_image.o
+EVOOBJS  = ${EXECBIN}.o ${LIBOBJS} 
 OBJECTS  = ${EVOOBJS}
 LISTING  = Listing.ps
 SOURCES  = ${HEADERS} ${CPPSRCS} Makefile
@@ -25,7 +25,7 @@ all: ${DEPFILE} ${EXECBIN}
 
 evolutions: ${EVOOBJS}
 	${GPP} -o $@ ${EVOOBJS} $(FRAMEWORK)
-	#NOTE: IMPORTANT to link SDL lib with -framework for SDL to work.
+	#NOTE: IMPORTANT to link libs with -framework so they work.
 
 %.o: %.cpp
 	${GPP} -c $<
