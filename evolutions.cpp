@@ -7,6 +7,7 @@
 #include "graphics.h"
 #include "mesh.h"
 #include "shader.h"
+#include "texture.h"
 
 //** NOTE: DEBUGF TOGGLE in DEBUG.h **
 void scan_options (int argc, char** argv) {
@@ -68,14 +69,15 @@ int main(int argc, char *argv[]){
 
    Mesh mesh(verts , (sizeof(verts)) / (sizeof(verts[0])) );
    Shader shader("./data/basicShader");
+   Texture texture("./data/bricks.jpg");
 
 
    while(!win.isclosed()){
       win.clear(255,255,255,0);
       
+      shader.Bind();  
+      texture.Bind(0);
       mesh.draw();
-      
-      shader.Bind();
       
       win.Update();
    }
