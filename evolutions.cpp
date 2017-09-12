@@ -55,12 +55,8 @@ int main(int argc, char *argv[]){
 
    basic_window win(_PROG_NAME, 640, 480);
 
+
    //TEST
-
-   
-
-
-
 
    Vertex verts[] = {Vertex(glm::vec3(-0.5,-0.5,0)),
                         Vertex(glm::vec3(0,0.5,0)),
