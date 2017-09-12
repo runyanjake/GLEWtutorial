@@ -38,13 +38,17 @@ public:
 class Vertex{
 private:
 	glm::vec3 pos;
+	glm::vec2 texCoord;
 public:
-	Vertex(const glm::vec3& p): pos(p){} //default ctor override
+	Vertex(const glm::vec3& p, const glm::vec2& t): pos(p), texCoord(t){} //default ctor override
 	// Vertex(const Vertex& m) = delete; //delete copy ctor
 	// Vertex(Vertex&& m) = delete; //delete move ctor
 	// Vertex& operator=(const Vertex& m) = delete; //delete copy opr
 	// Vertex& operator=(Vertex&& m) = delete; //delete move opr
 	~Vertex(); //default dtor override
+
+	inline glm::vec3* GetPos() { return &pos; }
+	inline glm::vec2* GetTexCoord() { return &texCoord; }
 	
 };
 
@@ -52,6 +56,7 @@ class Mesh{
 private:
 	enum{
 		POSITION_VB,
+		TEXCOORD_VB,
 
 		NUM_BUFFERS,
 	};

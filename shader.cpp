@@ -19,6 +19,7 @@ Shader::Shader(const std::string& filename){
     }
 
     glBindAttribLocation(m_program, 0, "position"); //tells what part to data to read as what var
+    glBindAttribLocation(m_program, 1, "texCoord"); //see glsm files for where these should be.
 
     glLinkProgram(m_program); //linking like compiling code
     CheckShaderError(m_program, GL_LINK_STATUS, true, "Error: Program linking Failed: ");

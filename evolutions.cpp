@@ -58,10 +58,9 @@ int main(int argc, char *argv[]){
 
    //TEST
 
-   Vertex verts[] = {Vertex(glm::vec3(-0.5,-0.5,0)),
-                        Vertex(glm::vec3(0,0.5,0)),
-                        Vertex(glm::vec3(0.5,-0.5,0))
-                  };
+   Vertex verts[] = {Vertex(glm::vec3(-0.5,-0.5,0), glm::vec2(0.0,0.0)),
+                        Vertex(glm::vec3(0,0.5,0), glm::vec2(0.5,1.0)),
+                        Vertex(glm::vec3(0.5,-0.5,0), glm::vec2(1.0,0.0)), };
 
    Mesh mesh(verts , (sizeof(verts)) / (sizeof(verts[0])) );
    Shader shader("./data/basicShader");
@@ -69,7 +68,7 @@ int main(int argc, char *argv[]){
 
 
    while(!win.isclosed()){
-      win.clear(255,255,255,0);
+      win.clear(0.0f,0.15f,0.3f,1.0f);
       
       shader.Bind();  
       texture.Bind(0);
