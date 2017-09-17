@@ -64,7 +64,7 @@ int main(int argc, char *argv[]){
 
    Mesh mesh(verts , (sizeof(verts)) / (sizeof(verts[0])) );
    Shader shader("./data/basicShader");
-   Texture texture("./data/bricks.jpg");
+   Texture texture("./data/vinod.jpg");
 
 
    while(!win.isclosed()){
