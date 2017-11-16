@@ -8,6 +8,7 @@
 #include "mesh.h"
 #include "shader.h"
 #include "texture.h"
+#include "transform.h"
 
 //** NOTE: DEBUGF TOGGLE in DEBUG.h **
 void scan_options (int argc, char** argv) {
@@ -65,16 +66,26 @@ int main(int argc, char *argv[]){
    Mesh mesh(verts , (sizeof(verts)) / (sizeof(verts[0])) );
    Shader shader("./data/basicShader");
    Texture texture("./data/vinod.jpg");
+   Transform transform;
 
+   float counter = 0.0f;
 
    while(!win.isclosed()){
       win.clear(0.0f,0.15f,0.3f,1.0f);
+
+      float sinctr = sinf(counter);
+      float cosctr = cosf(counter);
+      transform.getPos().x = sinf(counter);
+      transform.getRot().z = counter;
+      transform.setScale(glm::vec3(cosctr, cosctr, cosctr));
       
       shader.Bind();  
       texture.Bind(0);
+      shader.Update(transform);
       mesh.draw();
       
       win.Update();
+      counter += 0.1f; //Multiplier on counter updates.
    }
 
    //Destroy all Graphics Stuff
