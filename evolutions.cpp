@@ -23,11 +23,11 @@ void scan_options (int argc, char** argv) {
       if (option == EOF) break;
       switch (option) {
          case '@': 
-         	break;
+            break;
          case 'w': 
-         	break;
+            break;
          case 'h': 
-         	break;
+            break;
          default:
             std::cerr << "-" << char (optopt) << ": invalid option" << std::endl;
             break;
@@ -36,7 +36,7 @@ void scan_options (int argc, char** argv) {
 }
 
 int main(int argc, char *argv[]){
-	DEBUGF(OPERATING_SYSTEM_NAME << " operating system detected.");
+   DEBUGF(OPERATING_SYSTEM_NAME << " operating system detected.");
 
    //Check filesystem setup.
    if(!check_filesystem()){
@@ -44,7 +44,7 @@ int main(int argc, char *argv[]){
       //create /evolutions/bin, /evolutions/data
    }
 
-	scan_options(argc, argv);
+   scan_options(argc, argv);
 
    //Initialize Graphics Stuff
    SDL_Init(SDL_INIT_EVERYTHING);
