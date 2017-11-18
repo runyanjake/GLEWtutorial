@@ -9,6 +9,11 @@
 #include "shader.h"
 #include "texture.h"
 #include "transform.h"
+#include "camera.h"
+
+//****Macro Defn's****
+#define WIDTH 800
+#define HEIGHT 600
 
 //** NOTE: DEBUGF TOGGLE in DEBUG.h **
 void scan_options (int argc, char** argv) {
@@ -54,7 +59,7 @@ int main(int argc, char *argv[]){
    //GLenum glew_status = glewInit();
    //if(glew_status != GLEW_OK){ ERRORF("Glew failed to initialize."); }
 
-   basic_window win(_PROG_NAME, 640, 480);
+   basic_window win(_PROG_NAME, WIDTH, HEIGHT);
 
 
    //TEST
@@ -66,6 +71,7 @@ int main(int argc, char *argv[]){
    Mesh mesh(verts , (sizeof(verts)) / (sizeof(verts[0])) );
    Shader shader("./data/basicShader");
    Texture texture("./data/vinod.jpg");
+   Camera camera(glm::vec3(0,0,-2), 70.0f, (float)WIDTH / (float)HEIGHT, 0.01f, 1000.0f);
    Transform transform;
 
    float counter = 0.0f;
@@ -75,17 +81,20 @@ int main(int argc, char *argv[]){
 
       float sinctr = sinf(counter);
       float cosctr = cosf(counter);
-      transform.getPos().x = sinf(counter);
-      transform.getRot().z = counter;
-      transform.setScale(glm::vec3(cosctr, cosctr, cosctr));
+
+      transform.getPos().x = sinctr;
+      transform.getPos().z = cosctr;
+      transform.getRot().z = counter * 5;
+      transform.getRot().y = counter * 3;
+      //transform.setScale(glm::vec3(cosctr, cosctr, cosctr));
       
       shader.Bind();  
       texture.Bind(0);
-      shader.Update(transform);
+      shader.Update(transform, camera);
       mesh.draw();
       
       win.Update();
-      counter += 0.1f; //Multiplier on counter updates.
+      counter += 0.01f; //Multiplier on counter updates.
    }
 
    //Destroy all Graphics Stuff

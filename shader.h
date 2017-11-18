@@ -7,6 +7,7 @@
 #include <vector>
 
 #include "transform.h"
+#include "camera.h"
 
 #ifdef __APPLE__
 #include <OpenGL/gl3.h> 
@@ -36,7 +37,7 @@ public:
 
 
 	void Bind();
-	void Update(const Transform& transform);
+	void Update(const Transform& transform, const Camera& camera);
 };
 
 

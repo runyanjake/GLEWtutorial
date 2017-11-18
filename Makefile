@@ -9,7 +9,7 @@ GPP      = g++ -std=gnu++14 -g -O0 ${WARN}
 
 EXECBIN  = evolutions
 DEPFILE  = Makefile.dep
-HEADERS  = util.h debug.h tflow.h fileio.h graphics.h interp.h shape.h rgbcolor.h extern.h mesh.h shader.h texture.h
+HEADERS  = util.h debug.h tflow.h fileio.h graphics.h interp.h shape.h rgbcolor.h extern.h mesh.h shader.h texture.h transform.h camera.h
 CPPLIBS  = util.cpp debug.cpp tflow.cpp fileio.cpp graphics.cpp interp.cpp shape.cpp rgbcolor.cpp mesh.cpp shader.cpp texture.cpp
 CPPSRCS  = ${CPPLIBS} ${EXECBIN}.cpp
 LIBOBJS  = ${CPPLIBS:.cpp=.o} stb_image.o
